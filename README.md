@@ -195,6 +195,3 @@ project/
 - Results are validated through EigenLayer's decentralized network
 - Sensitive operations require wallet signatures
 - Real-time vulnerability detection and prevention
-
-## License
-This project is licensed under the MIT License.
