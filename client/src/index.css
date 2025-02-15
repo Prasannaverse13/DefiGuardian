@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 286 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 199 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 286 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 286 100% 50%;
+    --input: 0 0% 15%;
+    --ring: 286 100% 50%;
+
+    --radius: 0.25rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-mono antialiased bg-background text-foreground selection:bg-neon-purple/30;
+  }
+
+  /* Cyberpunk-style scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-black;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-neon-purple/50 hover:bg-neon-pink/50 transition-colors duration-300;
+  }
+
+  /* Glowing text effect */
+  .text-glow {
+    text-shadow: 0 0 10px theme('colors.neon.purple'),
+                 0 0 20px theme('colors.neon.purple'),
+                 0 0 30px theme('colors.neon.purple');
+  }
+
+  /* Cyberpunk gradient text */
+  .cyber-gradient {
+    @apply bg-gradient-to-r from-neon-pink via-neon-purple to-neon-blue bg-clip-text text-transparent;
+  }
+
+  /* Typing animation */
+  @keyframes typing {
+    from { width: 0% }
+    to { width: 100% }
+  }
+
+  @keyframes blink {
+    50% { border-color: transparent }
+  }
+
+  .animate-typing {
+    animation: typing 3s steps(40, end) forwards,
+               blink .75s step-end infinite;
+  }
+
+  /* Slide up animation */
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slideUp {
+    animation: slideUp 1s ease forwards;
+    animation-delay: 2s;
+  }
+
+  /* Glow animation */
+  @keyframes glow {
+    0% {
+      filter: drop-shadow(0 0 2px theme('colors.neon.green'))
+             drop-shadow(0 0 4px theme('colors.neon.green'));
+    }
+    50% {
+      filter: drop-shadow(0 0 8px theme('colors.neon.green'))
+             drop-shadow(0 0 16px theme('colors.neon.green'));
+    }
+    100% {
+      filter: drop-shadow(0 0 2px theme('colors.neon.green'))
+             drop-shadow(0 0 4px theme('colors.neon.green'));
+    }
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+}
